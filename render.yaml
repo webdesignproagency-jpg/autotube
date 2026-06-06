@@ -1,0 +1,25 @@
+﻿services:
+  - type: web
+    name: autotube-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        value: https://oedosxaksoyjvfqsuqyk.supabase.co
+      - key: SUPABASE_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+      - key: CRON_INTERVAL_HOURS
+        value: "12"
